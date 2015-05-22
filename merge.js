@@ -4,8 +4,7 @@ if(process.argv.length<5){
 	process.exit();
 }
 
-var files = process.argv.length - 2;
-
+/* Lectura/Escritura asincrona */
 for(var i=3; i< process.argv.length; i++){
 	fs.readFile(
 		process.argv[i],
@@ -14,7 +13,14 @@ for(var i=3; i< process.argv.length; i++){
 				process.argv[2], data,
 				function (err){
 					if(err) throw err;
-					console.log('files appened');
-				}
-		}
+					console.log('file appened');
+				});
+		});
+}
+
+/* Lectura/Escritura sincrona*/
+for(var i=3; i< process.argv.length; i++){
+	var data =fs.readFileSync(process.argv[i]);
+	fs.appendFileSync('sync_'+process.argv[2],data);
+
 }
