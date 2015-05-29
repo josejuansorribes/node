@@ -1,4 +1,5 @@
-var express = require('C:\\Users\\jnsb\\Documents\\_Apps\\NodeJSPortable\\App\\NodeJS\\node_modules\\express');
+//var express = require('C:\\Users\\jnsb\\Documents\\_Apps\\NodeJSPortable\\App\\NodeJS\\node_modules\\express');
+var express = require('express');
 var app = express();
 
 // Formularios
@@ -41,13 +42,13 @@ app.get('/respuesta', function(req,res,next){
 			res.send(answer(respuesta=='', respuesta));
 		}
 		else{
-			res.send('<button onclick="window.location=\'/preguntas\'">Página Incorrecta</button>');
+			res.send('<h3>Parámetros incorrectos</h3><button onclick="window.location=\'/preguntas\'">Volver</button>');
 		}
 	
 });
 
 app.get('*', function(req,res){
-	res.send('<button onclick="window.location=\'/preguntas\'">Página Incorrecta</button>');
+	res.send('<h3>Página Incorrecta</h3><button onclick="window.location=\'/preguntas\'">Llévame a la página correcta</button>');
 });
 
 
